@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">android-ocr-test</string>
+
+    <string name="title_toolbar">Camera Calculator</string>
+
+    <string name="btn_camera">Open Camera</string>
+    <string name="lbl_formula">Formula:</string>
+    <string name="lbl_result">Result:</string>
+
+    <string name="permission_denied">user permission denied!</string>
+</resources>
