@@ -20,10 +20,12 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivCapture"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="300dp"
         android:background="@color/cardview_dark_background"
         android:scaleType="centerCrop"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

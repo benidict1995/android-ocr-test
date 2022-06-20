@@ -3,7 +3,7 @@ package com.benidict.android_ocr_test.ui
 import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.benidict.android_ocr_test.base.BaseViewModel
-import com.benidict.android_ocr_test.constant.INVALID_FORMULA
+import com.benidict.domain.constant.INVALID_FORMULA
 import com.benidict.domain.usecase.CheckFormulaUseCase
 import com.benidict.domain.usecase.ComputeFormulaUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,22 +26,20 @@ class MainViewModel @Inject constructor(
 
     fun checkFormula(formula: String) {
         viewModelScope.launch(
-            CoroutineExceptionHandler{ _, error ->
+            CoroutineExceptionHandler { _, error ->
                 emitState {
                     mutableMainState.emit(
                         MainState.OnFormulaError(
-                            error.message?:INVALID_FORMULA
+                            error.message ?: INVALID_FORMULA
                         )
                     )
                 }
             }
-        ){
+        ) {
             val invoke = checkFormulaUseCase.checkFormula(formula = formula)
-            Log.d("makerChecker", "formula:$formula")
-            Log.d("makerChecker", "invoke:$invoke")
             val computation = computeFormulaUseCase.computeFormula(invoke)
             mutableMainState.emit(
-                MainState.OnComputationResult(result = computation, formula = formula)
+                MainState.OnComputationResult(result = computation, formula = invoke)
             )
         }
     }

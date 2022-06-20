@@ -3,9 +3,12 @@ package com.benidict.domain.constant
 import java.util.regex.Pattern
 
 const val CAMERA_REQUEST_PERMISSION = 100
+const val GALLERY_REQUEST_PERMISSION = 101
 
 const val INVALID_FORMULA = "Invalid Formula"
 const val INVALID_RESULT = "Invalid Result"
+
+const val FILE_SYSTEM = "File System"
 
 val letter = Pattern.compile("[a-zA-z]")
 val special = Pattern.compile("[!@#$%&()_=|<>?{}\\[\\]~]")

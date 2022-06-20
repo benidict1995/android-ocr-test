@@ -14,10 +14,10 @@ class ComputeFormulaUseCase {
         val result = formula.parseFormula()
         var formulaResult = result.second.first
         when (result.first) {
-            EXPRESSION_ADD -> formulaResult += Integer.parseInt(result.second.second)
-            EXPRESSION_MUL -> formulaResult *= Integer.parseInt(result.second.second)
-            EXPRESSION_DIV -> formulaResult -= Integer.parseInt(result.second.second)
-            EXPRESSION_MIN -> formulaResult /= Integer.parseInt(result.second.second)
+            EXPRESSION_ADD -> formulaResult += result.second.second.toInt()
+            EXPRESSION_MUL -> formulaResult *= result.second.second.toInt()
+            EXPRESSION_MIN -> formulaResult -= result.second.second.toInt()
+            EXPRESSION_DIV -> formulaResult /= result.second.second.toInt()
         }
         formulaResult
     }

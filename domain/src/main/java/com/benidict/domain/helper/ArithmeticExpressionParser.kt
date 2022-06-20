@@ -15,10 +15,10 @@ fun String.parseFormula(): Pair<Char, Pair<Int, String>> {
             hasSecondExpression +=1
             if (hasSecondExpression < 2){
                 when(symbol){
-                    EXPRESSION_ADD -> result += Integer.parseInt(digit)
-                    EXPRESSION_MUL -> result *= Integer.parseInt(digit)
-                    EXPRESSION_DIV -> result -= Integer.parseInt(digit)
-                    EXPRESSION_MIN -> result /= Integer.parseInt(digit)
+                    EXPRESSION_ADD -> result += digit.toInt()
+                    EXPRESSION_MUL -> result *= digit.toInt()
+                    EXPRESSION_MIN -> result -= digit.toInt()
+                    EXPRESSION_DIV -> result /= digit.toInt()
                 }
                 symbol = x
                 digit = EMPTY

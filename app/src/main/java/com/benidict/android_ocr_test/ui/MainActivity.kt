@@ -4,19 +4,23 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.benidict.android_ocr_test.BuildConfig
 import com.benidict.android_ocr_test.R
 import com.benidict.android_ocr_test.base.BaseActivity
-import com.benidict.android_ocr_test.constant.CAMERA_REQUEST_PERMISSION
-import com.benidict.android_ocr_test.constant.INVALID_RESULT
 import com.benidict.android_ocr_test.databinding.ActivityMainBinding
 import com.benidict.android_ocr_test.extension.processImageVision
 import com.benidict.android_ocr_test.extension.requestPermission
 import com.benidict.android_ocr_test.extension.showToast
+import com.benidict.domain.constant.CAMERA_REQUEST_PERMISSION
+import com.benidict.domain.constant.FILE_SYSTEM
+import com.benidict.domain.constant.GALLERY_REQUEST_PERMISSION
+import com.benidict.domain.constant.INVALID_RESULT
 
 
 @Suppress("DEPRECATION")
@@ -24,15 +28,25 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
     ActivityMainBinding::inflate
 ) {
 
+    val a = 5-100
+
     private val viewModel: MainViewModel by viewModels()
 
     override fun setupView() {
         super.setupView()
+        Log.d("makerChecker", "a:$a")
         binding.toolbar.title = BuildConfig.APP_NAME
         binding.btnCamera.text = BuildConfig.BUTTON_NAME
         binding.btnCamera.setOnClickListener {
             requestPermission(Manifest.permission.CAMERA, arrayOf(Manifest.permission.CAMERA)) {
-                openCamera(it)
+                val requestCode = if (BuildConfig.APP_NAME.contains(FILE_SYSTEM)) {
+                    GALLERY_REQUEST_PERMISSION
+                } else {
+                    it
+                }
+                openAction(
+                    requestCode
+                )
             }
         }
     }
@@ -49,6 +63,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
                         showToast(state.err)
                     }
                     is MainState.OnComputationResult -> {
+                        binding.tvFormula.text = state.formula
                         binding.tvResult.text = state.result.toString()
                     }
                 }
@@ -68,7 +83,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
                 if (grantResults.isNotEmpty()
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED
                 ) {
-                    openCamera(requestCode)
+                    openAction(requestCode)
                 } else {
                     showToast(getString(R.string.permission_denied))
                 }
@@ -78,24 +93,44 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        val bundle: Bundle = data?.extras ?: Bundle()
+        when (requestCode) {
+            CAMERA_REQUEST_PERMISSION -> {
+                val bundle: Bundle = data?.extras ?: Bundle()
+                bundle.let {
+                    val bitmap: Bitmap = bundle.get("data") as Bitmap
+                    binding.ivCapture.setImageBitmap(bitmap)
 
-        bundle.let {
-            val bitmap: Bitmap = bundle.get("data") as Bitmap
-            binding.ivCapture.setImageBitmap(bitmap)
-
-            bitmap.processImageVision(
-                onSuccess = {
-                    viewModel.checkFormula(it)
-                }, onFailed = {
-                    showToast(it)
-                })
+                    bitmap.processImageVision(
+                        onSuccess = {
+                            viewModel.checkFormula(it)
+                        }, onFailed = {
+                            showToast(it)
+                        })
+                }
+            }
+            GALLERY_REQUEST_PERMISSION -> {
+                val imageUri: Uri? = data?.data
+                val bitmap =
+                    MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
+                binding.ivCapture.setImageURI(imageUri)
+                bitmap.processImageVision(
+                    onSuccess = {
+                        viewModel.checkFormula(it)
+                    }, onFailed = {
+                        showToast(it)
+                    })
+            }
         }
     }
 
-    private fun openCamera(requestCode: Int) {
-        val i = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+    private fun openAction(requestCode: Int) {
+        val i: Intent
+        if (BuildConfig.APP_NAME.contains(FILE_SYSTEM)) {
+            i = Intent(Intent.ACTION_PICK)
+            i.type = "image/*"
+        } else {
+            i = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        }
         startActivityForResult(i, requestCode)
     }
-
 }
