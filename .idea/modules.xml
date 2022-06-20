@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android-ocr-test.iml" filepath="$PROJECT_DIR$/.idea/modules/android-ocr-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android-ocr-test.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android-ocr-test.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android-ocr-test.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android-ocr-test.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android-ocr-test.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android-ocr-test.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android-ocr-test.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android-ocr-test.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/android-ocr-test.data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/android-ocr-test.data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/android-ocr-test.data.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/android-ocr-test.data.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/android-ocr-test.data.main.iml" filepath="$PROJECT_DIR$/.idea/modules/data/android-ocr-test.data.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/android-ocr-test.data.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/android-ocr-test.data.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/android-ocr-test.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/android-ocr-test.domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/android-ocr-test.domain.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/android-ocr-test.domain.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/android-ocr-test.domain.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/android-ocr-test.domain.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/android-ocr-test.domain.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/android-ocr-test.domain.unitTest.iml" />
+    </modules>
+  </component>
+</project>

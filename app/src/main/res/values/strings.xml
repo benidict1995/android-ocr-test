@@ -7,5 +7,10 @@
     <string name="lbl_formula">Formula:</string>
     <string name="lbl_result">Result:</string>
 
+    <string name="app_name_red_camera">OCR Red Camera</string>
+    <string name="app_name_red_file_system">OCR Red File System</string>
+    <string name="app_name_green_camera">OCR Green Camera</string>
+    <string name="app_name_green_file_system">OCR Green File System</string>
+
     <string name="permission_denied">user permission denied!</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.benidict.android_ocr_test.ui
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.benidict.android_ocr_test.base.BaseViewModel
 import com.benidict.android_ocr_test.constant.INVALID_FORMULA
@@ -14,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val checkFormulaUseCase: CheckFormulaUseCase,
-    val computeFormulaUseCase: ComputeFormulaUseCase
+    private val computeFormulaUseCase: ComputeFormulaUseCase
 ) : BaseViewModel() {
 
     private val mutableMainState: MutableSharedFlow<MainState> = MutableSharedFlow(
@@ -28,7 +29,7 @@ class MainViewModel @Inject constructor(
             CoroutineExceptionHandler{ _, error ->
                 emitState {
                     mutableMainState.emit(
-                        MainState.onFormulaError(
+                        MainState.OnFormulaError(
                             error.message?:INVALID_FORMULA
                         )
                     )
@@ -36,7 +37,12 @@ class MainViewModel @Inject constructor(
             }
         ){
             val invoke = checkFormulaUseCase.checkFormula(formula = formula)
-
+            Log.d("makerChecker", "formula:$formula")
+            Log.d("makerChecker", "invoke:$invoke")
+            val computation = computeFormulaUseCase.computeFormula(invoke)
+            mutableMainState.emit(
+                MainState.OnComputationResult(result = computation, formula = formula)
+            )
         }
     }
 

@@ -19,7 +19,48 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    flavorDimensions "app"
+    productFlavors {
+        RedFileSystem {
+            applicationId "com.benidict.android_ocr_test"
+            dimension "app"
+            setProperty("archivesBaseName", "app-red-filesystem")
+            buildConfigField ("String", "APP_NAME", '"OCR Red File System"')
+            buildConfigField ("String", "BUTTON_NAME", '"Open Red File System"')
+            manifestPlaceholders = [appTheme: "@style/Theme.Androidocrtest.Red",
+                                    appLabel: "@string/app_name_red_file_system"]
+        }
 
+        RedBuiltInCamera {
+            applicationId "com.benidict.android_ocr_test"
+            dimension "app"
+            setProperty("archivesBaseName", "app-red-built-in-camera")
+            buildConfigField ("String", "APP_NAME", '"OCR Red Camera"')
+            buildConfigField ("String", "BUTTON_NAME", '"Open Red Camera"')
+            manifestPlaceholders = [appTheme: "@style/Theme.Androidocrtest.Red",
+                                    appLabel: "@string/app_name_red_camera"]
+        }
+
+        GreenFileSystem {
+            applicationId "com.benidict.android_ocr_test"
+            dimension "app"
+            setProperty("archivesBaseName", "app-green-filesystem")
+            buildConfigField ("String", "APP_NAME", '"OCR Green File System"')
+            buildConfigField ("String", "BUTTON_NAME", '"Open Green File System"')
+            manifestPlaceholders = [appTheme: "@style/Theme.Androidocrtest.Green",
+                                    appLabel: "@string/app_name_green_file_system"]
+        }
+
+        GreenBuiltInCamera {
+            applicationId "com.benidict.android_ocr_test"
+            dimension "app"
+            setProperty("archivesBaseName", "app-green-built-in-camera")
+            buildConfigField ("String", "APP_NAME", '"OCR Green Camera"')
+            buildConfigField ("String", "BUTTON_NAME", '"Open Green Camera"')
+            manifestPlaceholders = [appTheme: "@style/Theme.Androidocrtest.Green",
+                                    appLabel: "@string/app_name_green_camera"]
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false

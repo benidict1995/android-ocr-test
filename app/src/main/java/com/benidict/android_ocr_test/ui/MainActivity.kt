@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.benidict.android_ocr_test.BuildConfig
 import com.benidict.android_ocr_test.R
 import com.benidict.android_ocr_test.base.BaseActivity
 import com.benidict.android_ocr_test.constant.CAMERA_REQUEST_PERMISSION
@@ -27,7 +28,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
 
     override fun setupView() {
         super.setupView()
-
+        binding.toolbar.title = BuildConfig.APP_NAME
+        binding.btnCamera.text = BuildConfig.BUTTON_NAME
         binding.btnCamera.setOnClickListener {
             requestPermission(Manifest.permission.CAMERA, arrayOf(Manifest.permission.CAMERA)) {
                 openCamera(it)
@@ -41,10 +43,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
         lifecycleScope.launchWhenCreated {
             viewModel.maiState.collect { state ->
                 when (state) {
-                    is MainState.onFormulaError -> {
+                    is MainState.OnFormulaError -> {
                         binding.tvFormula.text = state.err
                         binding.tvResult.text = INVALID_RESULT
                         showToast(state.err)
+                    }
+                    is MainState.OnComputationResult -> {
+                        binding.tvResult.text = state.result.toString()
                     }
                 }
             }

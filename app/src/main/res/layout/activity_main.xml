@@ -8,7 +8,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:background="@color/purple_500"
+        android:background="?attr/colorPrimaryVariant"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -78,12 +78,13 @@
 
 
     <Button
+        android:backgroundTint="?attr/colorSecondary"
+        android:background="?attr/colorSecondary"
         android:layout_marginBottom="50dp"
         app:layout_constraintEnd_toEndOf="@+id/ivCapture"
         app:layout_constraintStart_toStartOf="@+id/ivCapture"
         app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/btnCamera"
-        android:text="@string/btn_camera"
         android:layout_width="0dp"
         android:layout_height="wrap_content" />
 
