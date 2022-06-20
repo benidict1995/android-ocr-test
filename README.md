@@ -3,11 +3,12 @@ Optical Character Recognition
 
 Done:
 - Open camera
-- Extra text from image
+- Extract text from image upload and image from the camera
 - Add permission
+- Checking of formula from extracted text
+- Multiple flavor.
+- Dynamic theme color base on the flavor.
+- Dynamic apk file name base on the flavor.
 
 In Progress:
-- Checking of formula from extracted text
-- Build variant.
-- Theme color.
 - Camera using surfaceview.
