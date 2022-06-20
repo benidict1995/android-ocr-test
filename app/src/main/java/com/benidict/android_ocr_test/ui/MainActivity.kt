@@ -7,7 +7,6 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.benidict.android_ocr_test.BuildConfig
@@ -28,13 +27,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
     ActivityMainBinding::inflate
 ) {
 
-    val a = 5-100
-
     private val viewModel: MainViewModel by viewModels()
 
     override fun setupView() {
         super.setupView()
-        Log.d("makerChecker", "a:$a")
         binding.toolbar.title = BuildConfig.APP_NAME
         binding.btnCamera.text = BuildConfig.BUTTON_NAME
         binding.btnCamera.setOnClickListener {
@@ -63,8 +59,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
                         showToast(state.err)
                     }
                     is MainState.OnComputationResult -> {
-                        binding.tvFormula.text = state.formula
-                        binding.tvResult.text = state.result.toString()
+                        binding.tvFormula.text = state.data.formula
+                        binding.tvResult.text = state.data.result.toString()
                     }
                 }
             }

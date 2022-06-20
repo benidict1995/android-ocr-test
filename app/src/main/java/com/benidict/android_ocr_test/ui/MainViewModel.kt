@@ -1,6 +1,5 @@
 package com.benidict.android_ocr_test.ui
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.benidict.android_ocr_test.base.BaseViewModel
 import com.benidict.domain.constant.INVALID_FORMULA
@@ -39,7 +38,7 @@ class MainViewModel @Inject constructor(
             val invoke = checkFormulaUseCase.checkFormula(formula = formula)
             val computation = computeFormulaUseCase.computeFormula(invoke)
             mutableMainState.emit(
-                MainState.OnComputationResult(result = computation, formula = invoke)
+                MainState.OnComputationResult(computation)
             )
         }
     }

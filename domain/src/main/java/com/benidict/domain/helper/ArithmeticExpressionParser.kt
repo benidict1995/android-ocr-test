@@ -1,11 +1,12 @@
 package com.benidict.domain.helper
 
 import com.benidict.domain.constant.*
+import com.benidict.domain.model.ResultData
 
-fun String.parseFormula(): Pair<Char, Pair<Int, String>> {
+fun String.parseFormula(): ResultData {
     var digit = EMPTY
     var symbol = EXPRESSION_ADD
-    var result = 0
+    var result = 0f
     var hasSecondExpression = 0
 
     for (x in this){
@@ -15,10 +16,10 @@ fun String.parseFormula(): Pair<Char, Pair<Int, String>> {
             hasSecondExpression +=1
             if (hasSecondExpression < 2){
                 when(symbol){
-                    EXPRESSION_ADD -> result += digit.toInt()
-                    EXPRESSION_MUL -> result *= digit.toInt()
-                    EXPRESSION_MIN -> result -= digit.toInt()
-                    EXPRESSION_DIV -> result /= digit.toInt()
+                    EXPRESSION_ADD -> result += digit.toFloat()
+                    EXPRESSION_MUL -> result *= digit.toFloat()
+                    EXPRESSION_MIN -> result -= digit.toFloat()
+                    EXPRESSION_DIV -> result /= digit.toFloat()
                 }
                 symbol = x
                 digit = EMPTY
@@ -26,7 +27,11 @@ fun String.parseFormula(): Pair<Char, Pair<Int, String>> {
         }
     }
 
-    return Pair(symbol, Pair(result, digit))
+    return ResultData(
+        expression = symbol,
+        result = result,
+        digit = digit
+    )
 }
 
 
