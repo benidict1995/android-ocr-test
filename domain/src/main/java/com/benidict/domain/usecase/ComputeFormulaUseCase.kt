@@ -1,6 +1,5 @@
 package com.benidict.domain.usecase
 
-import android.util.Log
 import com.benidict.domain.constant.EXPRESSION_ADD
 import com.benidict.domain.constant.EXPRESSION_DIV
 import com.benidict.domain.constant.EXPRESSION_MIN

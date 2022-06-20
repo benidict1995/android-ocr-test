@@ -10,24 +10,24 @@
     </facet>
     <facet type="android" name="Android">
       <configuration>
-        <option name="SELECTED_BUILD_VARIANT" value="RedBuiltInCameraDebug" />
-        <option name="ASSEMBLE_TASK_NAME" value="assembleRedBuiltInCameraDebug" />
-        <option name="COMPILE_JAVA_TASK_NAME" value="compileRedBuiltInCameraDebugSources" />
+        <option name="SELECTED_BUILD_VARIANT" value="GreenBuiltInCameraDebug" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleGreenBuiltInCameraDebug" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileGreenBuiltInCameraDebugSources" />
         <afterSyncTasks>
-          <task>generateRedBuiltInCameraDebugSources</task>
+          <task>generateGreenBuiltInCameraDebugSources</task>
         </afterSyncTasks>
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../app/src/main/res;file://$MODULE_DIR$/../../../app/src/RedBuiltInCamera/res;file://$MODULE_DIR$/../../../app/src/debug/res;file://$MODULE_DIR$/../../../app/src/RedBuiltInCameraDebug/res;file://$MODULE_DIR$/../../../app/build/generated/res/rs/RedBuiltInCamera/debug;file://$MODULE_DIR$/../../../app/build/generated/res/resValues/RedBuiltInCamera/debug" />
-        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../app/src/androidTest/res;file://$MODULE_DIR$/../../../app/src/androidTestRedBuiltInCamera/res;file://$MODULE_DIR$/../../../app/src/androidTestDebug/res;file://$MODULE_DIR$/../../../app/src/androidTestRedBuiltInCameraDebug/res;file://$MODULE_DIR$/../../../app/build/generated/res/rs/androidTest/RedBuiltInCamera/debug;file://$MODULE_DIR$/../../../app/build/generated/res/resValues/androidTest/RedBuiltInCamera/debug" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../app/src/main/res;file://$MODULE_DIR$/../../../app/src/GreenBuiltInCamera/res;file://$MODULE_DIR$/../../../app/src/debug/res;file://$MODULE_DIR$/../../../app/src/GreenBuiltInCameraDebug/res;file://$MODULE_DIR$/../../../app/build/generated/res/rs/GreenBuiltInCamera/debug;file://$MODULE_DIR$/../../../app/build/generated/res/resValues/GreenBuiltInCamera/debug" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../app/src/androidTest/res;file://$MODULE_DIR$/../../../app/src/androidTestGreenBuiltInCamera/res;file://$MODULE_DIR$/../../../app/src/androidTestDebug/res;file://$MODULE_DIR$/../../../app/src/androidTestGreenBuiltInCameraDebug/res;file://$MODULE_DIR$/../../../app/build/generated/res/rs/androidTest/GreenBuiltInCamera/debug;file://$MODULE_DIR$/../../../app/build/generated/res/resValues/androidTest/GreenBuiltInCamera/debug" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/RedBuiltInCameraDebug/classes" />
-    <output-test url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/RedBuiltInCameraDebugUnitTest/classes" />
+    <output url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/GreenBuiltInCameraDebug/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/GreenBuiltInCameraDebugUnitTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../app">
       <excludeFolder url="file://$MODULE_DIR$/../../../app/.gradle" />
@@ -38,7 +38,7 @@
     <orderEntry type="module-library">
       <library name="Gradle: kaptGeneratedClasses">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/RedBuiltInCameraDebug" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/GreenBuiltInCameraDebug" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -47,8 +47,8 @@
     <orderEntry type="module-library" scope="TEST">
       <library name="Gradle: kaptGeneratedTestClasses">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/RedBuiltInCameraDebugUnitTest" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/RedBuiltInCameraDebugAndroidTest" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/GreenBuiltInCameraDebugUnitTest" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/GreenBuiltInCameraDebugAndroidTest" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

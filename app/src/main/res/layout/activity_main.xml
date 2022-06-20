@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:background="@color/cardview_dark_background"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="50dp"

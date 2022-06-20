@@ -93,7 +93,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
 
     // FIREBASE
-    implementation 'com.google.firebase:firebase-ml-vision:24.0.1'
+    implementation "com.google.firebase:firebase-ml-vision:24.0.3"
 
     // HILT DAGGER
     implementation "com.google.dagger:hilt-android:2.40.5"
