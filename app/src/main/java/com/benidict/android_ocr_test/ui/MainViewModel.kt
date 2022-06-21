@@ -1,5 +1,6 @@
 package com.benidict.android_ocr_test.ui
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.benidict.android_ocr_test.base.BaseViewModel
 import com.benidict.domain.constant.INVALID_FORMULA
@@ -21,7 +22,7 @@ class MainViewModel @Inject constructor(
         replay = 1
     )
 
-    val maiState = mutableMainState
+    val mainState = mutableMainState
 
     fun checkFormula(formula: String) {
         viewModelScope.launch(

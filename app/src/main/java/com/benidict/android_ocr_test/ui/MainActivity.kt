@@ -51,7 +51,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
         super.observeState()
 
         lifecycleScope.launchWhenCreated {
-            viewModel.maiState.collect { state ->
+            viewModel.mainState.collect { state ->
                 when (state) {
                     is MainState.OnFormulaError -> {
                         binding.tvFormula.text = state.err
